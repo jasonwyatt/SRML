@@ -10,30 +10,38 @@ import android.support.annotation.StringRes;
  * Created by jason on 10/31/16.
  */
 public final class SRML {
-    private static final Transformer defaultTransformer = new DefaultTransformer();
+    private static Transformer sTransformer;
+
+    static {
+        configure(new DefaultTransformer());
+    }
 
     private SRML() {
         // no outside instantiation needed plz
     }
 
+    public static void configure(Transformer transformer) {
+        sTransformer = transformer;
+    }
+
     public static CharSequence getString(Context context, @StringRes int resId) {
-        return getString(context, defaultTransformer, resId);
+        return getString(context, sTransformer, resId);
     }
 
     public static CharSequence getString(Context context, @StringRes int resId, Object... formatArgs) {
-        return getString(context, defaultTransformer, resId, formatArgs);
+        return getString(context, sTransformer, resId, formatArgs);
     }
 
     public static CharSequence[] getStringArray(Context context, @ArrayRes int resId) {
-        return getStringArray(context, defaultTransformer, resId);
+        return getStringArray(context, sTransformer, resId);
     }
 
     public static CharSequence getQuantityString(Context context, @PluralsRes int resId, int quantity) {
-        return getQuantityString(context, defaultTransformer, resId, quantity);
+        return getQuantityString(context, sTransformer, resId, quantity);
     }
 
     public static CharSequence getQuantityString(Context context, @PluralsRes int resId, int quantity, Object... formatArgs) {
-        return getQuantityString(context, defaultTransformer, resId, quantity, formatArgs);
+        return getQuantityString(context, sTransformer, resId, quantity, formatArgs);
     }
 
     public static CharSequence getString(Context context, Transformer transformer, @StringRes int resId) {
@@ -41,7 +49,7 @@ public final class SRML {
     }
 
     public static CharSequence getString(Context context, Transformer transformer, @StringRes int resId, Object... formatArgs) {
-        return transformer.transform(context, context.getString(resId, formatArgs));
+        return transformer.transform(context, context.getString(resId, transformer.getSanitizer().sanitizeArgs(formatArgs)));
     }
 
     public static CharSequence[] getStringArray(Context context, Transformer transformer, @ArrayRes int resId) {
@@ -58,6 +66,6 @@ public final class SRML {
     }
 
     public static CharSequence getQuantityString(Context context, Transformer transformer, @PluralsRes int resId, int quantity, Object... formatArgs) {
-        return transformer.transform(context, context.getResources().getQuantityString(resId, quantity, formatArgs));
+        return transformer.transform(context, context.getResources().getQuantityString(resId, quantity, transformer.getSanitizer().sanitizeArgs(formatArgs)));
     }
 }

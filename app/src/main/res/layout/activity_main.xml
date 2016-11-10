@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
@@ -10,11 +10,55 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="co.jasonwyatt.srmldemoapp.MainActivity"
+    android:orientation="vertical"
     >
 
     <TextView
+        android:id="@+id/bold1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="@string/bold_test"
         />
-</RelativeLayout>
+    <TextView
+        android:id="@+id/bold2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bold_test_oops"
+        />
+    <TextView
+        android:id="@+id/italic1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/italic_test"
+        />
+    <TextView
+        android:id="@+id/italic2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/italic_test_oops"
+        />
+    <TextView
+        android:id="@+id/bold_italic1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bold_italic_test"
+        />
+    <TextView
+        android:id="@+id/bold_italic2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bold_italic_test_oops"
+        />
+    <TextView
+        android:id="@+id/underline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/underline_test"
+        />
+    <TextView
+        android:id="@+id/strike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/strike_test"
+        />
+</LinearLayout>

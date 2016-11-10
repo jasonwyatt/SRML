@@ -9,4 +9,6 @@ import android.content.Context;
  */
 public interface Transformer {
     CharSequence transform(Context context, String srmlString);
+
+    Sanitizer getSanitizer();
 }
