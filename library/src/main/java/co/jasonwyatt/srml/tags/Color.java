@@ -43,7 +43,7 @@ class Color extends ParameterizedTag {
      */
     static int getColorInt(String colorValue) {
         if (colorValue == null) {
-            throw new IllegalArgumentException("bad color value: "+colorValue);
+            throw new IllegalArgumentException("color value is null");
         }
         Matcher m = COLOR_VALUE_PATTERN.matcher(colorValue);
         if (!m.find()) {
@@ -65,6 +65,6 @@ class Color extends ParameterizedTag {
         } else if (colorLength == 8) {
             return (int) Long.parseLong(colorValue, 16);
         }
-        throw new IllegalArgumentException("bad color value: "+colorValue);
+        throw new IllegalArgumentException("could not parse color value: "+colorValue);
     }
 }
