@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">SRML</string>
+    <string name="simple_srml_string">
+        {{b}}This{{/b}} is bold, while {{i}}this{{/i}} is italic.
+    </string>
+    <string name="simple_html_string"><![CDATA[
+        <b>This</b> is bold, while <em>this</em> is italic.
+    ]]></string>
+    <string name="simple_srml_string_with_param">
+        {{b}}This{{/b}} is bold, while {{i}}this{{/i}} is italic; here is a bolded parameter: {{b}}%s{{/b}}.
+    </string>
+    <string name="simple_html_string_with_param"><![CDATA[
+        <b>This</b> is bold, while <em>this</em> is italic; here is a bolded parameter: <b>%s</b>
+    ]]></string>
 </resources>

@@ -1,11 +1,19 @@
 package co.jasonwyatt.srml;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Created by jason on 11/10/16.
  *
  * Sanitizes parameters for parameterized strings, and unsanitizes them later.
  */
 public class DefaultSanitizer implements Sanitizer {
+    private static final Pattern SANITIZE_PATTERN = Pattern.compile("\\{{2}");
+    private static final Pattern DESANITIZE_PATTERN = Pattern.compile("\u0000{2}");
+    private static final String SANITIZE_REPLACEMENT = "\u0000\u0000";
+    private static final String DESANITIZE_REPLACEMENT = "{{";
+
     public DefaultSanitizer() {
         //
     }
@@ -15,19 +23,23 @@ public class DefaultSanitizer implements Sanitizer {
         if (formatArgs == null) {
             return null;
         }
-        Object[] result = new Object[formatArgs.length];
         for (int i = 0; i < formatArgs.length; i++) {
-            if (formatArgs[i] instanceof String) {
-                result[i] = ((String)formatArgs[i]).replaceAll("\\{\\{", "\u0000\u0000");
-            } else {
-                result[i] = formatArgs[i];
+            if (formatArgs[i] instanceof CharSequence) {
+                Matcher m = SANITIZE_PATTERN.matcher((CharSequence) formatArgs[i]);
+                if (m.matches()) {
+                    formatArgs[i] = m.replaceAll(SANITIZE_REPLACEMENT);
+                }
             }
         }
-        return result;
+        return formatArgs;
     }
 
     @Override
     public String desantitize(String s) {
-        return s.replaceAll("\u0000\u0000", "{{");
+        Matcher m = DESANITIZE_PATTERN.matcher(s);
+        if (m.matches()) {
+            return m.replaceAll(DESANITIZE_REPLACEMENT);
+        }
+        return s;
     }
 }
