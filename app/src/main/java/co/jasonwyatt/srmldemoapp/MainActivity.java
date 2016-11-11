@@ -12,7 +12,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         ((TextView)findViewById(R.id.bold1)).setText(SRML.getString(this, R.string.bold_test));
         ((TextView)findViewById(R.id.bold2)).setText(SRML.getString(this, R.string.bold_test_oops));
         ((TextView)findViewById(R.id.italic1)).setText(SRML.getString(this, R.string.italic_test));
@@ -21,5 +25,6 @@ public class MainActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.bold_italic2)).setText(SRML.getString(this, R.string.bold_italic_test_oops));
         ((TextView)findViewById(R.id.underline)).setText(SRML.getString(this, R.string.underline_test));
         ((TextView)findViewById(R.id.strike)).setText(SRML.getString(this, R.string.strike_test));
+        ((TextView)findViewById(R.id.dirty)).setText(SRML.getString(this, R.string.dirty_test, "{{b}}dirty string{{/b}}"));
     }
 }

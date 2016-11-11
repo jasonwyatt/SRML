@@ -8,4 +8,5 @@
     <string name="bold_italic_test_oops">This is {{b}}{{i}}a test{{/i}}{{/b}} of {{b}}{{i}}bold/italic parsing.</string>
     <string name="underline_test">This is {{u}}a test{{/u}} of {{u}}underline{{/u}} parsing.</string>
     <string name="strike_test">This is {{strike}}a test{{/strike}} of {{strike}}strikethrough{{/strike}} parsing.</string>
+    <string name="dirty_test">This is a {{b}}test case{{/b}} which allows for a string parameter: %s</string>
 </resources>

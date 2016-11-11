@@ -61,4 +61,10 @@
         android:layout_height="wrap_content"
         android:text="@string/strike_test"
         />
+    <TextView
+        android:id="@+id/dirty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dirty_test"
+        />
 </LinearLayout>

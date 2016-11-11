@@ -26,9 +26,7 @@ public class DefaultSanitizer implements Sanitizer {
         for (int i = 0; i < formatArgs.length; i++) {
             if (formatArgs[i] instanceof CharSequence) {
                 Matcher m = SANITIZE_PATTERN.matcher((CharSequence) formatArgs[i]);
-                if (m.matches()) {
-                    formatArgs[i] = m.replaceAll(SANITIZE_REPLACEMENT);
-                }
+                formatArgs[i] = m.replaceAll(SANITIZE_REPLACEMENT);
             }
         }
         return formatArgs;
@@ -37,9 +35,6 @@ public class DefaultSanitizer implements Sanitizer {
     @Override
     public String desantitize(String s) {
         Matcher m = DESANITIZE_PATTERN.matcher(s);
-        if (m.matches()) {
-            return m.replaceAll(DESANITIZE_REPLACEMENT);
-        }
-        return s;
+        return m.replaceAll(DESANITIZE_REPLACEMENT);
     }
 }
