@@ -26,5 +26,6 @@ public class MainActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.underline)).setText(SRML.getString(this, R.string.underline_test));
         ((TextView)findViewById(R.id.strike)).setText(SRML.getString(this, R.string.strike_test));
         ((TextView)findViewById(R.id.dirty)).setText(SRML.getString(this, R.string.dirty_test, "{{b}}dirty string{{/b}}"));
+        ((TextView)findViewById(R.id.color)).setText(SRML.getString(this, R.string.color_test));
     }
 }

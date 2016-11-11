@@ -29,6 +29,9 @@ public final class TagFactory {
         if (Strikethrough.NAME.equalsIgnoreCase(tagName)) {
             return new Strikethrough(tagText, startPosition);
         }
+        if (Color.NAME.equalsIgnoreCase(tagName)) {
+            return new Color(tagText, startPosition);
+        }
         if (mConstructorMap.containsKey(tagName.toLowerCase())) {
             try {
                 return mConstructorMap.get(tagName.toLowerCase()).newInstance(tagText, startPosition);

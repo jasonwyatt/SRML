@@ -7,6 +7,11 @@ SRML stands for String Resource Markup Language: Style your localized strings fo
 * `{{i}}Text{{/i}}` -> *Text*
 * `{{u}}Text{{/u}}` -> underlined text (markdown fail!)
 * `{{strike}}Text{{/strike}}` -> ~~Text~~
+* `{{color value=#FF0000}}Text{{/color}}` -> red "Text"
+  * supports `value` in the following formats:
+     * Three character (css-like): #ABC
+     * Six character opaque: #FF00FF
+     * Eight character alpha: #50000000
 * etc...
 
 ## How to use

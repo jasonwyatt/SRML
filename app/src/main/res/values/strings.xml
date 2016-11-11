@@ -9,4 +9,5 @@
     <string name="underline_test">This is {{u}}a test{{/u}} of {{u}}underline{{/u}} parsing.</string>
     <string name="strike_test">This is {{strike}}a test{{/strike}} of {{strike}}strikethrough{{/strike}} parsing.</string>
     <string name="dirty_test">This is a {{b}}test case{{/b}} which allows for a string parameter: %s</string>
+    <string name="color_test">{{color value=#33000000}}This{{/color}} is a {{color value=#FF00FF}}test case{{/color}} of {{color value=#F00}}colored{{/color}} text.</string>
 </resources>
