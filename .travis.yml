@@ -24,3 +24,6 @@ android:
 branches:
   except:
     - gh-pages
+
+script:
+  - ./gradlew :library:build :library:connectedCheck
