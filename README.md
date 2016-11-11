@@ -1,7 +1,10 @@
-[![Build Status](https://travis-ci.org/jasonwyatt/SRML.svg?branch=master)](https://travis-ci.org/jasonwyatt/SRML) [![](https://jitpack.io/v/jasonwyatt/SRML.svg)](https://jitpack.io/#jasonwyatt/SRML)
 
-# SRML
-SRML stands for "String Resource Markup Language": Style your localized strings for Android.
+
+# SRML [![Build Status](https://travis-ci.org/jasonwyatt/SRML.svg?branch=master)](https://travis-ci.org/jasonwyatt/SRML) [![](https://jitpack.io/v/jasonwyatt/SRML.svg)](https://jitpack.io/#jasonwyatt/SRML)
+
+SRML: "String Resource Markup Language"
+
+Mark up your Android string resources with an impressive suite of formatting tags.
 
 ## SRML Tags
 
