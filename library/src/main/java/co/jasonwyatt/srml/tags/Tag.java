@@ -1,6 +1,5 @@
 package co.jasonwyatt.srml.tags;
 
-import android.support.annotation.Nullable;
 import android.text.Spannable;
 
 /**
