@@ -7,7 +7,6 @@ import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import co.jasonwyatt.srml.tags.Strikethrough;
 import co.jasonwyatt.srml.tags.Tag;
 import co.jasonwyatt.srml.tags.TagFactory;
 
