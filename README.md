@@ -1,5 +1,7 @@
+[![](https://jitpack.io/v/jasonwyatt/SRML.svg)](https://jitpack.io/#jasonwyatt/SRML)
+
 # SRML
-SRML stands for String Resource Markup Language: Style your localized strings for Android.
+SRML stands for "String Resource Markup Language": Style your localized strings for Android.
 
 ## SRML Tags
 
@@ -13,6 +15,27 @@ SRML stands for String Resource Markup Language: Style your localized strings fo
      * Six character opaque: #FF00FF
      * Eight character alpha: #50000000
 * etc...
+
+## Configuring your Dependencies
+
+Add [jitpack.io](https://jitpack.io) to your root `build.gradle` at the end of `repositories`:
+
+```groovy
+allprojects {
+    repositories {
+        ...
+        maven { url "https://jitpack.io" }
+    }
+}
+```
+
+Add SRML as a dependency to your app's `build.gradle`:
+
+```groovy
+dependencies {
+    compile 'com.github.jasonwyatt:SRML:-SNAPSHOT'
+}
+```
 
 ## How to use
 
