@@ -1,31 +1,39 @@
 package co.jasonwyatt.srmldemoapp;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import co.jasonwyatt.srml.SRML;
 
 public class MainActivity extends AppCompatActivity {
+    private ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        ((TextView)findViewById(R.id.bold1)).setText(SRML.getString(this, R.string.bold_test));
-        ((TextView)findViewById(R.id.bold2)).setText(SRML.getString(this, R.string.bold_test_oops));
-        ((TextView)findViewById(R.id.italic1)).setText(SRML.getString(this, R.string.italic_test));
-        ((TextView)findViewById(R.id.italic2)).setText(SRML.getString(this, R.string.italic_test_oops));
-        ((TextView)findViewById(R.id.bold_italic1)).setText(SRML.getString(this, R.string.bold_italic_test));
-        ((TextView)findViewById(R.id.bold_italic2)).setText(SRML.getString(this, R.string.bold_italic_test_oops));
-        ((TextView)findViewById(R.id.underline)).setText(SRML.getString(this, R.string.underline_test));
-        ((TextView)findViewById(R.id.strike)).setText(SRML.getString(this, R.string.strike_test));
-        ((TextView)findViewById(R.id.dirty)).setText(SRML.getString(this, R.string.dirty_test, "{{b}}dirty string{{/b}}"));
-        ((TextView)findViewById(R.id.color)).setText(SRML.getString(this, R.string.color_test));
+        mListView = (ListView) findViewById(R.id.activity_main);
+
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_list_item_1) {
+            @NonNull
+            @Override
+            public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+                View v = super.getView(position, convertView, parent);
+                if (v instanceof TextView) {
+                    ((TextView) v).setMovementMethod(LinkMovementMethod.getInstance());
+                }
+                return v;
+            }
+        };
+        adapter.addAll(SRML.getStringArray(this, R.array.test_strings));
+        mListView.setAdapter(adapter);
     }
 }

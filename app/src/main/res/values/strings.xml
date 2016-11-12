@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">SRML Demo App</string>
-    <string name="bold_test">This is {{b}}a test{{/b}} of {{b}}bold{{/b}} parsing.</string>
-    <string name="bold_test_oops">This is {{b}}a test{{/b}} of {{b}}bold parsing.</string>
-    <string name="italic_test">This is {{i}}a test{{/i}} of {{i}}italic{{/i}} parsing.</string>
-    <string name="italic_test_oops">This is {{i}}a test{{/i}} of {{i}}italic parsing.</string>
-    <string name="bold_italic_test">This is {{b}}{{i}}a test{{/i}}{{/b}} of {{b}}{{i}}bold/italic{{/i}}{{/b}} parsing.</string>
-    <string name="bold_italic_test_oops">This is {{b}}{{i}}a test{{/i}}{{/b}} of {{b}}{{i}}bold/italic parsing.</string>
-    <string name="underline_test">This is {{u}}a test{{/u}} of {{u}}underline{{/u}} parsing.</string>
-    <string name="strike_test">This is {{strike}}a test{{/strike}} of {{strike}}strikethrough{{/strike}} parsing.</string>
-    <string name="dirty_test">This is a {{b}}test case{{/b}} which allows for a string parameter: %s</string>
-    <string name="color_test">{{color value=#33000000}}This{{/color}} is a {{color value=#FF00FF}}test case{{/color}} of {{color value=#F00}}colored{{/color}} text.</string>
+
+    <string-array name="test_strings">
+        <item>This is {{b}}a test{{/b}} of {{b}}bold{{/b}} parsing.</item>
+        <item>This is {{i}}a test{{/i}} of {{i}}italic{{/i}} parsing.</item>
+        <item>This is {{b}}{{i}}a test{{/i}}{{/b}} of {{b}}{{i}}bold/italic{{/i}}{{/b}} parsing.</item>
+        <item>This is {{u}}a test{{/u}} of {{u}}underline{{/u}} parsing.</item>
+        <item>This is {{strike}}a test{{/strike}} of {{strike}}strikethrough{{/strike}} parsing.</item>
+        <item>{{color value=#33000000}}This{{/color}} is a {{color value=#FF00FF}}test case{{/color}} of {{color value=#F00}}colored{{/color}} text.</item>
+        <item>{{link url=http://www.google.com}}This{{/link}} is a {{link url=http://www.bandcamp.com}}test case{{/link}} with a couple of links.</item>
+    </string-array>
 </resources>

@@ -32,6 +32,9 @@ public final class TagFactory {
         if (Color.NAME.equalsIgnoreCase(tagName)) {
             return new Color(tagText, startPosition);
         }
+        if (Link.NAME.equalsIgnoreCase(tagName)) {
+            return new Link(tagText, startPosition);
+        }
         if (mConstructorMap.containsKey(tagName.toLowerCase())) {
             try {
                 return mConstructorMap.get(tagName.toLowerCase()).newInstance(tagText, startPosition);

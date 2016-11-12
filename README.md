@@ -17,6 +17,7 @@ Mark up your Android string resources with an impressive suite of formatting tag
      * Three character (css-like): #ABC
      * Six character opaque: #FF00FF
      * Eight character alpha: #50000000
+* `{{link url=http://myurl.com}}Text{{/link}}` -> [Test](http://myurl.com
 * etc...
 
 ## Configuring your Dependencies
