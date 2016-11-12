@@ -10,10 +10,12 @@ import java.util.regex.Pattern;
 
 /**
  * Created by jason on 11/11/16.
+ *
+ * A ParameterizedTag is one which can contain an arbitrarily long list of parameters, defined as
+ * name=value pairs after the tag name in the opening tag.
  */
-
 public abstract class ParameterizedTag extends Tag {
-    private static final Pattern PARAMS_PATTERN = Pattern.compile("(([a-zA-Z_]+)=([^\\s}]+))*\\s?");
+    private static final Pattern PARAMS_PATTERN = Pattern.compile("\\s+(([a-zA-Z0-9_]+)=([^\\s}]+))");
     private final Map<String, String> mParams;
 
     /**
@@ -27,12 +29,7 @@ public abstract class ParameterizedTag extends Tag {
             mParams = new HashMap<>(3);
         }
 
-        Matcher m = PARAMS_PATTERN.matcher(tagStr);
-        while (m.find()) {
-            String paramName = m.group(2);
-            String paramValue = m.group(3);
-            mParams.put(paramName, paramValue);
-        }
+        parseParams(tagStr, mParams);
     }
 
     /**
@@ -40,5 +37,17 @@ public abstract class ParameterizedTag extends Tag {
      */
     protected String getParam(String name) {
         return mParams.get(name);
+    }
+
+    /**
+     * Parse the supplied tag string for parameters, and put them in {@param out}
+     */
+    static void parseParams(String tagStr, Map<String, String> out) {
+        Matcher m = PARAMS_PATTERN.matcher(tagStr);
+        while (m.find()) {
+            String paramName = m.group(2);
+            String paramValue = m.group(3);
+            out.put(paramName, paramValue);
+        }
     }
 }
