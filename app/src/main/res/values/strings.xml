@@ -7,7 +7,10 @@
         <item>This is {{b}}{{i}}a test{{/i}}{{/b}} of {{b}}{{i}}bold/italic{{/i}}{{/b}} parsing.</item>
         <item>This is {{u}}a test{{/u}} of {{u}}underline{{/u}} parsing.</item>
         <item>This is {{strike}}a test{{/strike}} of {{strike}}strikethrough{{/strike}} parsing.</item>
-        <item>{{color value=#33000000}}This{{/color}} is a {{color value=#FF00FF}}test case{{/color}} of {{color value=#F00}}colored{{/color}} text.</item>
+        <item>{{color fg=#33000000}}This{{/color}} is a {{color fg=#FF00FF}}test case{{/color}} of {{color fg=#F00}}colored{{/color}} text.</item>
+        <item>{{color bg=#33000000}}This{{/color}} is a {{color bg=#FF00FF}}test case{{/color}} of {{color bg=#F00}}colored{{/color}} text backgrounds.</item>
+        <item>Let\'s do some {{color fg=#fff bg=#000}}white text on a black background{{/color}}</item>
         <item>{{link url=http://www.google.com}}This{{/link}} is a {{link url=http://www.bandcamp.com}}test case{{/link}} with a couple of links.</item>
+        <item>Here\'s some code: {{code}}hello world{{/code}}</item>
     </string-array>
 </resources>

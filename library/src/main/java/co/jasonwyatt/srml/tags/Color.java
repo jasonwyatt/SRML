@@ -2,6 +2,7 @@ package co.jasonwyatt.srml.tags;
 
 import android.text.Spannable;
 import android.text.Spanned;
+import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 
 import java.util.regex.Matcher;
@@ -12,12 +13,13 @@ import java.util.regex.Pattern;
  *
  * Allows you to color a chunk of text.
  *
- * Usage: {{color value=#FF00FF}}my text{{/color}} -> Magenta "my text"
+ * Usage: {{color fg=#FF00FF}}my text{{/color}} -> Magenta "my text"
  */
 
 class Color extends ParameterizedTag {
     static final String NAME = "color";
-    private static final String PARAM_COLOR_VALUE = "value";
+    private static final String PARAM_COLOR_FG = "fg";
+    private static final String PARAM_COLOR_BG = "bg";
     private static final Pattern COLOR_VALUE_PATTERN = Pattern.compile("^#([0-9a-f]{3,8})$", Pattern.CASE_INSENSITIVE);
 
     public Color(String tagStr, int taggedTextStart) {
@@ -31,10 +33,17 @@ class Color extends ParameterizedTag {
 
     @Override
     public void operate(Spannable builder, int taggedTextEnd) {
-        String colorValue = getParam(PARAM_COLOR_VALUE);
+        String colorValue = getParam(PARAM_COLOR_FG);
+        if (colorValue != null) {
+            int colorInt = getColorInt(colorValue);
+            builder.setSpan(new ForegroundColorSpan(colorInt), getTaggedTextStart(), taggedTextEnd, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        }
 
-        int colorInt = getColorInt(colorValue);
-        builder.setSpan(new ForegroundColorSpan(colorInt), getTaggedTextStart(), taggedTextEnd, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        colorValue = getParam(PARAM_COLOR_BG);
+        if (colorValue != null) {
+            int colorInt = getColorInt(colorValue);
+            builder.setSpan(new BackgroundColorSpan(colorInt), getTaggedTextStart(), taggedTextEnd, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        }
     }
 
     /**
@@ -42,9 +51,6 @@ class Color extends ParameterizedTag {
      * @return Color int value, or -1 if it could not be parsed.
      */
     static int getColorInt(String colorValue) {
-        if (colorValue == null) {
-            throw new IllegalArgumentException("color value is null");
-        }
         Matcher m = COLOR_VALUE_PATTERN.matcher(colorValue);
         if (!m.find()) {
             throw new IllegalArgumentException("bad color value: "+colorValue);

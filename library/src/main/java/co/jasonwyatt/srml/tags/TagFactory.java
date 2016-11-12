@@ -35,6 +35,9 @@ public final class TagFactory {
         if (Link.NAME.equalsIgnoreCase(tagName)) {
             return new Link(tagText, startPosition);
         }
+        if (Code.NAME.equalsIgnoreCase(tagName)) {
+            return new Code(tagText, startPosition);
+        }
         if (mConstructorMap.containsKey(tagName.toLowerCase())) {
             try {
                 return mConstructorMap.get(tagName.toLowerCase()).newInstance(tagText, startPosition);

@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  */
 
 public abstract class ParameterizedTag extends Tag {
-    private static final Pattern PARAMS_PATTERN = Pattern.compile("\\s+(([a-zA-Z_]+)=([^\\s}]+))*\\s*");
+    private static final Pattern PARAMS_PATTERN = Pattern.compile("(([a-zA-Z_]+)=([^\\s}]+))*\\s?");
     private final Map<String, String> mParams;
 
     /**

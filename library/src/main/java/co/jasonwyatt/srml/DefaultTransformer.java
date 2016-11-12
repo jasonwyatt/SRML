@@ -16,7 +16,7 @@ import co.jasonwyatt.srml.tags.TagFactory;
  */
 public class DefaultTransformer implements Transformer {
 
-    private static final Pattern TAG_PATTERN = Pattern.compile("\\{\\{(/)?(([a-zA-Z]+)(\\s+(([a-zA-Z_]+)=([^\\s}]+)))*\\s*)\\}\\}", Pattern.CASE_INSENSITIVE);
+    private static final Pattern TAG_PATTERN = Pattern.compile("\\{\\{(/)?(([-a-zA-Z]+)(\\s+(([a-zA-Z_]+)=([^\\s}]+)))*\\s*)\\}\\}", Pattern.CASE_INSENSITIVE);
     private final Sanitizer mSanitizer;
     private final TagFactory mTagFactory;
 

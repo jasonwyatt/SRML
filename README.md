@@ -12,12 +12,11 @@ Mark up your Android string resources with an impressive suite of formatting tag
 * `{{i}}Text{{/i}}` -> *Text*
 * `{{u}}Text{{/u}}` -> underlined text (markdown fail!)
 * `{{strike}}Text{{/strike}}` -> ~~Text~~
-* `{{color value=#FF0000}}Text{{/color}}` -> red "Text"
-  * supports `value` in the following formats:
-     * Three character (css-like): #ABC
-     * Six character opaque: #FF00FF
-     * Eight character alpha: #50000000
+* `{{color fg=#FF0000}}Text{{/color}}` -> red "Text"
+* `{{color bg=#FF0000}}Text{{/color}}` -> red background "Text"
+* `{{color fg=#fff bg=#000}}Text{{/color}}` -> white "Text" on black background
 * `{{link url=http://myurl.com}}Text{{/link}}` -> [Test](http://myurl.com)
+* `{{code}}Text{{/code}}` -> monospaced text
 * etc...
 
 ## Configuring your Dependencies

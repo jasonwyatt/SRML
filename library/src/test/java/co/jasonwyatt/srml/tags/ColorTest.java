@@ -4,11 +4,12 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created by jason on 11/11/16.
- */
-
 public class ColorTest {
+    @Test
+    public void getColorInt_with_black_3() throws Exception {
+        assertEquals(0xFF000000, Color.getColorInt("#000"));
+    }
+
     @Test
     public void getColorInt_with_length_3() throws Exception {
         assertEquals(0xFFFFFFFF, Color.getColorInt("#FFF"));
