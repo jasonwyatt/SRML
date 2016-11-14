@@ -1,6 +1,9 @@
 package co.jasonwyatt.srml.tags;
 
+import android.content.Context;
 import android.text.Spannable;
+
+import co.jasonwyatt.srml.Transformer;
 
 /**
  * Tags are the meat and potatoes of SRML. Everything you can use to mark up your string resources
@@ -41,12 +44,35 @@ public abstract class Tag {
     }
 
     /**
+     * Whether or not this tag is allowed to be an empty, self-closing tag. <br/><br/>
+     * <b>NOTE:</b> If you return <code>true</code>, the {@link Transformer} will call
+     * {@link #getRequiredSpacesWhenEmpty()} before it calls {@link #operate(Context, Spannable, int)}
+     *
+     * @return Whether the tag can be empty.
+     */
+    public boolean canBeEmpty() {
+        return false;
+    }
+
+    /**
+     * When <code>true</code> is returned from {@link #canBeEmpty()}, this method will be called to
+     * allow you to specify a number of non-breaking spaces required by the Tag. When
+     * {@link #operate(Context, Spannable, int)} is called, it will be passed the value from
+     * {@link #getTaggedTextStart()} plus the return value from this method.
+     *
+     * @return The number of required non-breaking spaces for the tag.
+     */
+    public int getRequiredSpacesWhenEmpty() {
+        return 0;
+    }
+
+    /**
      * Return whether or not the closing tag seen matches this tag.<br/><br/>
      *
      * <b>NOTE:</b> Typically you only need to check {@param tagName} against the name you use for the tag.
      * @param tagName The name of the closing tag.
      * @return Whether or not that name matches this tag, if so, SRML will call
-     *         {@link #operate(Spannable, int)}, passing the ending index where the closing tag was
+     *         {@link #operate(Context, Spannable, int)}, passing the ending index where the closing tag was
      *         found.
      */
     public abstract boolean matchesClosingTag(String tagName);
@@ -58,8 +84,9 @@ public abstract class Tag {
      * using {@link #getTaggedTextStart()} and {@param taggedTextEnd} as the start and end
      * parameters.
      *
+     * @param context The context for the resource.
      * @param spannable The {@link Spannable} on which to operate.
      * @param taggedTextEnd The index in the final (parsed) string where the closing tag was seen.
      */
-    public abstract void operate(Spannable spannable, int taggedTextEnd);
+    public abstract void operate(Context context, Spannable spannable, int taggedTextEnd);
 }

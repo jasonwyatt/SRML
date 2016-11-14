@@ -1,5 +1,6 @@
 package co.jasonwyatt.srml.tags;
 
+import android.content.Context;
 import android.graphics.Typeface;
 import android.text.Spannable;
 import android.text.Spanned;
@@ -23,7 +24,7 @@ class Italic extends Tag {
     }
 
     @Override
-    public void operate(Spannable builder, int taggedTextEnd) {
+    public void operate(Context context, Spannable builder, int taggedTextEnd) {
         builder.setSpan(new StyleSpan(Typeface.ITALIC), getTaggedTextStart(), taggedTextEnd, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
     }
 }

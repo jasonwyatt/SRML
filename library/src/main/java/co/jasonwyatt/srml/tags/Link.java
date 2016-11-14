@@ -1,5 +1,6 @@
 package co.jasonwyatt.srml.tags;
 
+import android.content.Context;
 import android.text.Spannable;
 import android.text.Spanned;
 import android.text.style.URLSpan;
@@ -23,7 +24,7 @@ class Link extends ParameterizedTag {
     }
 
     @Override
-    public void operate(Spannable builder, int taggedTextEnd) {
+    public void operate(Context context, Spannable builder, int taggedTextEnd) {
         String url = getParam(URL_PARAM_NAME);
 
         builder.setSpan(new URLSpan(url), getTaggedTextStart(), taggedTextEnd, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);

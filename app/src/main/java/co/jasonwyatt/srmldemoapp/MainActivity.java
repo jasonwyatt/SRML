@@ -1,5 +1,6 @@
 package co.jasonwyatt.srmldemoapp;
 
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_list_item_1) {
+        final ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_list_item_1) {
             @NonNull
             @Override
             public View getView(int position, View convertView, @NonNull ViewGroup parent) {
@@ -37,7 +38,21 @@ public class MainActivity extends AppCompatActivity {
                 return v;
             }
         };
-        adapter.addAll(SRML.getStringArray(this, R.array.test_strings));
+
+        // Only doing this in the background because the string array contains an {{image}} tag with
+        // a url, and we use picasso for image fetching, which balks when you try to load an image
+        // on the main thread.
+        new AsyncTask<Void, Void, CharSequence[]>() {
+            @Override
+            protected void onPostExecute(CharSequence[] charSequences) {
+                adapter.addAll(charSequences);
+            }
+
+            @Override
+            protected CharSequence[] doInBackground(Void... params) {
+                return SRML.getStringArray(MainActivity.this, R.array.test_strings);
+            }
+        }.execute();
         mListView.setAdapter(adapter);
     }
 }

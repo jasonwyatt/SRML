@@ -2,6 +2,7 @@
     <string name="app_name">SRML Demo App</string>
     <string name="another_activity_title">Another Activity</string>
     <string name="no_text_extra_sent">No value for extra \"test\"</string>
+    <string name="text_extra_sent">Value for extra \"test\" = {{code}}%s{{/code}}</string>
 
     <string-array name="test_strings">
         <item>This is {{b}}a test{{/b}} of {{b}}bold{{/b}} parsing.</item>
@@ -16,5 +17,21 @@
         <item>Here\'s some code: {{code}}hello world{{/code}}</item>
         <item>Click {{intent class=co.jasonwyatt.srmldemoapp.TargetActivity}}here{{/intent}} to launch another activity.</item>
         <item>Click {{intent class=co.jasonwyatt.srmldemoapp.TargetActivity x_text=`hello world`}}here{{/intent}} to launch another activity with an extra.</item>
+        <item>Let\'s try an image by a resource id: {{drawable res=R.mipmap.ic_launcher width=16dp height=16dp /}} - sweet!</item>
+        <item>Let\'s try an image from a url: {{drawable url=http://emojis.slackmojis.com/emojis/images/1457563042/312/doge.png /}} - sweet!</item>
+        <item>
+            {{b}}Lorem {{i}}ipsum{{/i}}{{/b}} dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit.
+            Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel,
+            nisi. {{color fg=#f00}}Sed{{/color}} {{color fg=#0f0}}pretium{{/color}}, {{color fg=#00f}}ligula{{/color}} sollicitudin laoreet viverra, tortor libero sodales leo, eget
+            blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.\n\n
+
+            {{drawable url=http://emojis.slackmojis.com/emojis/images/1450735852/239/charmander.png?1450735852 /}}\n\n
+
+            Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero
+            eu augue. {{color bg=#FFFBCC}}Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est.{{/color}} Sed
+            lectus. Praesent {{link url=http://srml.jasonwyatt.co}}elementum hendrerit tortor{{/link}}. Sed semper lorem at felis. Vestibulum
+            volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien
+            ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+        </item>
     </string-array>
 </resources>

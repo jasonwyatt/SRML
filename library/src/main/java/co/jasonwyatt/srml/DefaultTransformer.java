@@ -7,6 +7,7 @@ import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import co.jasonwyatt.srml.tags.BadTagException;
 import co.jasonwyatt.srml.tags.Tag;
 import co.jasonwyatt.srml.tags.TagFactory;
 
@@ -37,12 +38,21 @@ public class DefaultTransformer implements Transformer {
 
             String tagDetails = m.group(2);
             String tagName = m.group(3);
+            boolean isSelfClosed = tagDetails.endsWith("/");
             if (m.group(1) != null) {
                 // it's a closing tag.
                 Tag stackTop = tags.isEmpty() ? null : tags.peek();
                 if (stackTop != null && stackTop.matchesClosingTag(tagName)) {
-                    stackTop.operate(builder, builder.length());
+                    stackTop.operate(context, builder, builder.length());
                     tags.pop();
+                }
+            } else if (isSelfClosed) {
+                Tag tag = mTagFactory.getTag(tagName, tagDetails.substring(0, tagDetails.length()-1), builder.length());
+                if (tag.canBeEmpty()) {
+                    appendNonbreaking(builder, tag.getRequiredSpacesWhenEmpty());
+                    tag.operate(context, builder, builder.length());
+                } else {
+                    throw new BadTagException("Tag "+m.group(0)+" is not allowed to be self-closing.");
                 }
             } else {
                 // it's a new opening tag.
@@ -56,10 +66,16 @@ public class DefaultTransformer implements Transformer {
         // clean out any remaining tags...
         while (!tags.isEmpty()) {
             Tag t = tags.pop();
-            t.operate(builder, builder.length());
+            t.operate(context, builder, builder.length());
         }
 
         return builder;
+    }
+
+    void appendNonbreaking(SpannableStringBuilder builder, int spaces) {
+        for (int i = 0; i < spaces; i++) {
+            builder.append("\u00A0");
+        }
     }
 
     @Override

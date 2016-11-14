@@ -41,6 +41,9 @@ public final class TagFactory {
         if (IntentTag.NAME.equalsIgnoreCase(tagName)) {
             return new IntentTag(tagText, startPosition);
         }
+        if (DrawableTag.NAME.equalsIgnoreCase(tagName)) {
+            return new DrawableTag(tagText, startPosition);
+        }
         if (mConstructorMap.containsKey(tagName.toLowerCase())) {
             try {
                 return mConstructorMap.get(tagName.toLowerCase()).newInstance(tagText, startPosition);

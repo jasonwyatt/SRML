@@ -41,4 +41,7 @@ captures/
 
 # Performance traces
 *.trace
-*.html
+
+# Stupid stuff
+.DS_Store
+

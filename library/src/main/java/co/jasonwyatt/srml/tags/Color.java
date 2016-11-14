@@ -1,5 +1,6 @@
 package co.jasonwyatt.srml.tags;
 
+import android.content.Context;
 import android.text.Spannable;
 import android.text.Spanned;
 import android.text.style.BackgroundColorSpan;
@@ -32,7 +33,7 @@ class Color extends ParameterizedTag {
     }
 
     @Override
-    public void operate(Spannable builder, int taggedTextEnd) {
+    public void operate(Context context, Spannable builder, int taggedTextEnd) {
         String colorValue = getParam(PARAM_COLOR_FG);
         if (colorValue != null) {
             int colorInt = getColorInt(colorValue);

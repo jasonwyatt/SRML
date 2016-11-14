@@ -1,5 +1,6 @@
 package co.jasonwyatt.srml.tags;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -87,7 +88,7 @@ public class IntentTag extends ParameterizedTag {
     }
 
     @Override
-    public void operate(Spannable builder, int taggedTextEnd) {
+    public void operate(Context context, Spannable builder, int taggedTextEnd) {
         builder.setSpan(new IntentSpan(mTargetClass, mAction, mExtras, mIsForService), getTaggedTextStart(), taggedTextEnd, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
     }
 

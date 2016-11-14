@@ -16,7 +16,7 @@ public final class SRML {
     private static Transformer sTransformer;
 
     static {
-        configure(new DefaultTransformer());
+        configure(new DefaultTransformer(), null);
     }
 
     private SRML() {
@@ -26,9 +26,19 @@ public final class SRML {
     /**
      * Supply a {@link Transformer} for SRML.
      * @param transformer The new transformer.
+     * @param imageLoader An {@link SRMLImageLoader} for SRML.
      */
-    public static void configure(Transformer transformer) {
+    public static void configure(Transformer transformer, SRMLImageLoader imageLoader) {
         sTransformer = transformer;
+        setImageLoader(imageLoader);
+    }
+
+    /**
+     * Set an image loader for SRML.
+     * @param imageLoader The new image loader.
+     */
+    public static void setImageLoader(SRMLImageLoader imageLoader) {
+        Utils.setImageLoader(imageLoader);
     }
 
     /**

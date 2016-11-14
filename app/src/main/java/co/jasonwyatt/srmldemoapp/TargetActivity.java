@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import co.jasonwyatt.srml.SRML;
+
 public class TargetActivity extends AppCompatActivity {
 
     @Override
@@ -17,9 +19,9 @@ public class TargetActivity extends AppCompatActivity {
         Intent i = getIntent();
         TextView textView = (TextView) findViewById(R.id.text);
         if (i.hasExtra("text")) {
-            textView.setText(i.getStringExtra("text"));
+            textView.setText(SRML.getString(this, R.string.text_extra_sent, i.getStringExtra("text")));
         } else {
-            textView.setText(getString(R.string.no_text_extra_sent));
+            textView.setText(SRML.getString(this, R.string.no_text_extra_sent));
         }
     }
 }

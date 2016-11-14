@@ -1,6 +1,6 @@
 package co.jasonwyatt.srml.tags;
 
-import android.os.Parcel;
+import android.content.Context;
 import android.text.Spannable;
 import android.text.Spanned;
 import android.text.style.TypefaceSpan;
@@ -24,7 +24,7 @@ class Code extends Tag {
     }
 
     @Override
-    public void operate(Spannable builder, int taggedTextEnd) {
+    public void operate(Context context, Spannable builder, int taggedTextEnd) {
         builder.setSpan(new TypefaceSpan(MONOSPACE), getTaggedTextStart(), taggedTextEnd, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
     }
 }
