@@ -1,9 +1,7 @@
 package co.jasonwyatt.srml.tags;
 
-import android.graphics.Typeface;
 import android.text.Spannable;
 import android.text.Spanned;
-import android.text.style.StyleSpan;
 import android.text.style.UnderlineSpan;
 
 /**
