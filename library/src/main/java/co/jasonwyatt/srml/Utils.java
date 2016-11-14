@@ -1,7 +1,7 @@
 package co.jasonwyatt.srml;
 
 /**
- * Created by jason on 11/14/16.
+ * @author jason
  *
  * General utilities.
  */

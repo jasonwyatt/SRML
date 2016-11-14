@@ -14,16 +14,16 @@ import java.util.regex.Pattern;
 import co.jasonwyatt.srml.Utils;
 
 /**
- * Created by jason on 11/11/16.
- *
  * A ParameterizedTag is one which can contain an arbitrarily long list of parameters, defined as
- * <code>name=value</code> pairs after the tag name in the opening tag.
+ * <code>name=value</code> pairs after the tag name in the opening tag.<br/><br/>
  *
- * Parameters can be of the following formats:
+ * Parameters can be of the following formats:<br/>
  * <ul>
  *     <li><code>param_name=param_value</code> if you do not need spaces, or</li>
  *     <li><code>param_name=`param value`</code> if your param does need spaces</li>
  * </ul>
+ *
+ * @author jason
  */
 public abstract class ParameterizedTag extends Tag {
     private static final Pattern PARAMS_PATTERN = Pattern.compile("\\s+(([a-zA-Z0-9_\\.]+)=(`((?:[^`]|\\s)*)`|([^\\s}]+)))");

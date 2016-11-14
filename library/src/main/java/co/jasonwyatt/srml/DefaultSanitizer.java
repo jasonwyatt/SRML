@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by jason on 11/10/16.
+ * @author jason
  *
  * Sanitizes parameters for parameterized strings, and unsanitizes them later.
  */

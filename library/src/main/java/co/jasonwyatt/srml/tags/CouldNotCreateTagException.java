@@ -1,7 +1,7 @@
 package co.jasonwyatt.srml.tags;
 
 /**
- * Created by jason on 11/10/16.
+ * @author jason
  * Thrown by the {@link TagFactory} when a tag could not be instantiated.
  */
 public class CouldNotCreateTagException extends RuntimeException {

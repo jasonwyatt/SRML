@@ -7,7 +7,7 @@ import android.text.style.StyleSpan;
 import android.text.style.UnderlineSpan;
 
 /**
- * Created by jason on 11/10/16.
+ * @author jason
  *
  * Tag for underlining text.
  */

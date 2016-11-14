@@ -6,7 +6,7 @@ import android.text.Spanned;
 import android.text.style.TypefaceSpan;
 
 /**
- * Created by jason on 11/12/16.
+ * @author jason
  *
  * Shows monospace text like source code.
  */

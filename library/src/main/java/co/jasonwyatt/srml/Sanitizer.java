@@ -1,7 +1,7 @@
 package co.jasonwyatt.srml;
 
 /**
- * Created by jason on 11/10/16.
+ * @author jason
  */
 public interface Sanitizer {
     /**

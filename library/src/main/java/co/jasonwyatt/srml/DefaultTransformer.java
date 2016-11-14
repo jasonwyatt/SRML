@@ -12,7 +12,7 @@ import co.jasonwyatt.srml.tags.TagFactory;
 
 /**
  * The default implementation of {@link Transformer} for SRML.
- * Created by jason on 10/31/16.
+ * @author jason
  */
 public class DefaultTransformer implements Transformer {
 

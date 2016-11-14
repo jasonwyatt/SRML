@@ -9,7 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by jason on 11/11/16.
+ * @author jason
  *
  * Allows you to color a chunk of text.
  *

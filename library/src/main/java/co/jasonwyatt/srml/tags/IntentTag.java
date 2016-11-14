@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 import co.jasonwyatt.srml.Utils;
 
 /**
- * Created by jason on 11/14/16.
+ * @author jason
  *
  * This tag can be used to launch an activity or a service.
  *

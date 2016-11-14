@@ -5,7 +5,7 @@ import android.text.Spanned;
 import android.text.style.StrikethroughSpan;
 
 /**
- * Created by jason on 11/10/16.
+ * @author jason
  *
  * For strikethroughs around text.
  */

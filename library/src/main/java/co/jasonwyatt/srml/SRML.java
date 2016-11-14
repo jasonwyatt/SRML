@@ -8,8 +8,9 @@ import android.support.annotation.StringRes;
 import co.jasonwyatt.srml.tags.Tag;
 
 /**
+ * SRML stands for <b>S</b>tring <b>R</b>esource <b>M</b>arkup <b>L</b>anguage.
  *
- * Created by jason on 10/31/16.
+ * @author jason
  */
 public final class SRML {
     private static Transformer sTransformer;

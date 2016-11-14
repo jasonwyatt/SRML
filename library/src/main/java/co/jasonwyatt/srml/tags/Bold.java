@@ -6,7 +6,7 @@ import android.text.Spanned;
 import android.text.style.StyleSpan;
 
 /**
- * Created by jason on 11/10/16.
+ * @author jason
  *
  * Tag for bolding text.
  */

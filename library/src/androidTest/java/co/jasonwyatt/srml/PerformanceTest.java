@@ -16,7 +16,7 @@ import java.util.Locale;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by jason on 11/11/16.
+ * @author jason
  *
  * Performance tests. They fail if {@link SRML#getString} is slower than {@link Html#fromHtml}.
  */

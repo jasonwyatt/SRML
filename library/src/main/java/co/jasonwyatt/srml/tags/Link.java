@@ -5,7 +5,7 @@ import android.text.Spanned;
 import android.text.style.URLSpan;
 
 /**
- * Created by jason on 11/12/16.
+ * @author jason
  *
  * The {{link url=http://.....}} tag creates a clickable link Spannable in the text.
  */

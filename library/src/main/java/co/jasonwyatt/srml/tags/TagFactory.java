@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by jason on 11/10/16.
+ * @author jason
  *
  * Creates {@link Tag} instances according to the supplied tag name.
  */

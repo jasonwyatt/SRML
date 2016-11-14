@@ -3,12 +3,12 @@ package co.jasonwyatt.srml.tags;
 import android.text.Spannable;
 
 /**
- * Created by jason on 11/1/16.
- *
  * Tags are the meat and potatoes of SRML. Everything you can use to mark up your string resources
  * extends from this class.  If you wish to create your own tags you can extend this directly. If
  * you prefer to make a custom tag which accepts parameters, extend {@link ParameterizedTag} instead
  * and it'll do the heavy lifting for you regarding parsing.
+ *
+ * @author jason
  */
 public abstract class Tag {
     private final String mTagStr;
@@ -41,7 +41,7 @@ public abstract class Tag {
     }
 
     /**
-     * Return whether or not the closing tag seen matches this tag.
+     * Return whether or not the closing tag seen matches this tag.<br/><br/>
      *
      * <b>NOTE:</b> Typically you only need to check {@param tagName} against the name you use for the tag.
      * @param tagName The name of the closing tag.
@@ -52,9 +52,11 @@ public abstract class Tag {
     public abstract boolean matchesClosingTag(String tagName);
 
     /**
-     * Operate on the provided {@link Spannable}. You'll typically want to call
-     * {@link Spannable#setSpan(Object, int, int, int)} on it, using {@link #getTaggedTextStart()}
-     * and {@param taggedTextEnd} as the start and end parameters.
+     * Operate on the provided {@link Spannable}.<br/><br/>
+     *
+     * You'll typically want to call {@link Spannable#setSpan(Object, int, int, int)} on it,
+     * using {@link #getTaggedTextStart()} and {@param taggedTextEnd} as the start and end
+     * parameters.
      *
      * @param spannable The {@link Spannable} on which to operate.
      * @param taggedTextEnd The index in the final (parsed) string where the closing tag was seen.

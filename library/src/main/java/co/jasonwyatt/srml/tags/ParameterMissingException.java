@@ -1,7 +1,7 @@
 package co.jasonwyatt.srml.tags;
 
 /**
- * Created by jason on 11/14/16.
+ * @author jason
  *
  * This exception can be thrown by a {@link ParameterizedTag} when a required parameter is missing.
  */

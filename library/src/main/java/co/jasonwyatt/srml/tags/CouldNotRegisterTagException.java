@@ -1,7 +1,7 @@
 package co.jasonwyatt.srml.tags;
 
 /**
- * Created by jason on 11/10/16.
+ * @author jason
  *
  * Thrown when we could not register a user-supplied Tag class.
  */
