@@ -21,7 +21,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mListView = (ListView) findViewById(R.id.activity_main);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_list_item_1) {
             @NonNull
             @Override

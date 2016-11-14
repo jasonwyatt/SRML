@@ -38,6 +38,9 @@ public final class TagFactory {
         if (Code.NAME.equalsIgnoreCase(tagName)) {
             return new Code(tagText, startPosition);
         }
+        if (IntentTag.NAME.equalsIgnoreCase(tagName)) {
+            return new IntentTag(tagText, startPosition);
+        }
         if (mConstructorMap.containsKey(tagName.toLowerCase())) {
             try {
                 return mConstructorMap.get(tagName.toLowerCase()).newInstance(tagText, startPosition);

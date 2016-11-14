@@ -39,7 +39,7 @@ public class ColorTest {
         boolean thrown = false;
         try {
             Color.getColorInt("#00");
-        } catch (IllegalArgumentException e) {
+        } catch (BadParameterException e) {
             thrown = true;
         }
         assertTrue(thrown);
@@ -47,7 +47,7 @@ public class ColorTest {
 
         try {
             Color.getColorInt("#0000");
-        } catch (IllegalArgumentException e) {
+        } catch (BadParameterException e) {
             thrown = true;
         }
         assertTrue(thrown);
@@ -55,7 +55,7 @@ public class ColorTest {
 
         try {
             Color.getColorInt("#00000");
-        } catch (IllegalArgumentException e) {
+        } catch (BadParameterException e) {
             thrown = true;
         }
         assertTrue(thrown);
@@ -63,7 +63,7 @@ public class ColorTest {
 
         try {
             Color.getColorInt("#0000000");
-        } catch (IllegalArgumentException e) {
+        } catch (BadParameterException e) {
             thrown = true;
         }
         assertTrue(thrown);
@@ -71,7 +71,7 @@ public class ColorTest {
 
         try {
             Color.getColorInt("#000000000");
-        } catch (IllegalArgumentException e) {
+        } catch (BadParameterException e) {
             thrown = true;
         }
         assertTrue(thrown);

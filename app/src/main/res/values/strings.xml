@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">SRML Demo App</string>
+    <string name="another_activity_title">Another Activity</string>
+    <string name="no_text_extra_sent">No value for extra \"test\"</string>
 
     <string-array name="test_strings">
         <item>This is {{b}}a test{{/b}} of {{b}}bold{{/b}} parsing.</item>
@@ -12,5 +14,7 @@
         <item>Let\'s do some {{color fg=#fff bg=#AA000000}}white text on a black background{{/color}}</item>
         <item>{{link url=http://www.google.com}}This{{/link}} is a {{link url=http://www.bandcamp.com}}test case{{/link}} with a couple of links.</item>
         <item>Here\'s some code: {{code}}hello world{{/code}}</item>
+        <item>Click {{intent class=co.jasonwyatt.srmldemoapp.TargetActivity}}here{{/intent}} to launch another activity.</item>
+        <item>Click {{intent class=co.jasonwyatt.srmldemoapp.TargetActivity x_text=`hello world`}}here{{/intent}} to launch another activity with an extra.</item>
     </string-array>
 </resources>

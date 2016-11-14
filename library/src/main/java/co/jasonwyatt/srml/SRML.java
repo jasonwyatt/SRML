@@ -5,6 +5,8 @@ import android.support.annotation.ArrayRes;
 import android.support.annotation.PluralsRes;
 import android.support.annotation.StringRes;
 
+import co.jasonwyatt.srml.tags.Tag;
+
 /**
  *
  * Created by jason on 10/31/16.
@@ -20,14 +22,40 @@ public final class SRML {
         // no outside instantiation needed plz
     }
 
+    /**
+     * Supply a {@link Transformer} for SRML.
+     * @param transformer The new transformer.
+     */
     public static void configure(Transformer transformer) {
         sTransformer = transformer;
     }
 
+    /**
+     * Register a new {@link Tag} type with SRML.
+     * @param name The tag's name, aka: the first part in a tag after the <code>{{</code> or <code>{{/</code>
+     * @param tagClass The class for an implementation of {@link Tag}
+     */
+    public static void registerTag(String name, Class<? extends Tag> tagClass) {
+        sTransformer.getTagFactory().registerTag(name, tagClass);
+    }
+
+    /**
+     * Analog of {@link Context#getString(int)} for SRML.
+     * @param context Context to retrieve the string resource from.
+     * @param resId String resource.
+     * @return The templatized string.
+     */
     public static CharSequence getString(Context context, @StringRes int resId) {
         return getString(context, sTransformer, resId);
     }
 
+    /**
+     * Analog of {@link Context#getString(int, Object[])} for SRML.
+     * @param context Context to retrieve the string resource from.
+     * @param resId String resource.
+     * @param formatArgs Format arguments for the string, passed along to {@link Context#getString(int, Object[]}
+     * @return The templatized string.
+     */
     public static CharSequence getString(Context context, @StringRes int resId, Object... formatArgs) {
         return getString(context, sTransformer, resId, formatArgs);
     }
