@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>SRML by jasonwyatt</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>SRML</h1>
+        <h2>Style your localized strings for Android.</h2>
+        <a href="https://github.com/jasonwyatt/SRML" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h3>
+<a id="srml-stands-for-string-resource-markup-language" class="anchor" href="#srml-stands-for-string-resource-markup-language" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SRML stands for <strong>S</strong>tring <strong>R</strong>esource <strong>M</strong>arkup <strong>L</strong>anguage</h3>
+
+<p>Keeping your text in <code>&lt;string&gt;</code> resources is important when it comes time to internationalize your app (or just keep the code clean).</p>
+
+<h3>
+<a id="srml-tags" class="anchor" href="#srml-tags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SRML Tags</h3>
+
+<ul>
+<li>
+<code>{{b}}Text{{/b}}</code> -&gt; <strong>Text</strong>
+</li>
+<li>
+<code>{{i}}Text{{/i}}</code> -&gt; <em>Text</em>
+</li>
+<li>
+<code>{{u}}Text{{/u}}</code> -&gt; underlined text (markdown fail!)</li>
+<li>
+<code>{{strike}}Text{{/strike}}</code> -&gt; <del>Text</del>
+</li>
+<li>
+<code>{{color fg=#FF0000}}Text{{/color}}</code> -&gt; red "Text"</li>
+<li>
+<code>{{color bg=#FF0000}}Text{{/color}}</code> -&gt; red background "Text"</li>
+<li>
+<code>{{color fg=#fff bg=#000}}Text{{/color}}</code> -&gt; white "Text" on black background</li>
+<li>
+<code>{{link url=http://myurl.com}}Text{{/link}}</code> -&gt; <a href="http://myurl.com">Test</a>
+</li>
+<li>
+<code>{{code}}Text{{/code}}</code> -&gt; monospaced text</li>
+<li>
+<code>{{intent class=com.yourcompany.ActivityClass}}Text{{/intent}}</code> -&gt; link "Text" which launches the <code>ActivityClass</code> activity</li>
+<li>
+<code>{{intent class=com.yourcompany.ActivityClass x_myextra=foo}}Text{{/intent}}</code> -&gt; link "Text" which launches the <code>ActivityClass</code> activity with intent extra <code>myextra="foo"</code>
+</li>
+<li>
+<code>{{intent class=com.yourcompany.ActivityClass x_myextra=`value with spaces`}}Text{{/intent}}</code> -&gt; link "Text" which launches the <code>ActivityClass</code> activity with intent extra <code>myextra="value with spaces"</code>
+</li>
+<li>
+<code>{{intent class=com.yourcompany.ServiceClass for_service=true}}Text{{/intent}}</code> -&gt; link "Text" which starts the <code>ServiceClass</code> service</li>
+</ul>
+
+<h4>
+<a id="create-your-own-tags" class="anchor" href="#create-your-own-tags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create your own tags</h4>
+
+<ol>
+<li>Extend <a href="library/src/main/java/co/jasonwyatt/srml/tags/Tag.java">Tag</a> or <a href="library/src/main/java/co/jasonwyatt/srml/tags/ParameterizedTag">ParameterizedTag</a>
+</li>
+<li>Register your tag with <code>SRML.registerTag("mytag", MyTag.class)</code>
+</li>
+<li>Use it in a string resource: <code>&lt;string name="some_string"&gt;Hello {{mytag}}World{{/mytag}}&lt;/string&gt;</code>
+</li>
+</ol>
+
+<h3>
+<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup</h3>
+
+<p>Add <a href="https://jitpack.io">jitpack.io</a> to your root <code>build.gradle</code> at the end of <code>repositories</code>:</p>
+
+<div class="highlight highlight-source-groovy"><pre>allprojects {
+    repositories {
+        <span class="pl-k">..</span>.
+        maven { url <span class="pl-s"><span class="pl-pds">"</span>https://jitpack.io<span class="pl-pds">"</span></span> }
+    }
+}</pre></div>
+
+<p>Add SRML as a dependency to your app's <code>build.gradle</code>:</p>
+
+<div class="highlight highlight-source-groovy"><pre>dependencies {
+    compile <span class="pl-s"><span class="pl-pds">'</span>com.github.jasonwyatt:SRML:-SNAPSHOT<span class="pl-pds">'</span></span>
+}</pre></div>
+
+<h3>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use</h3>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-c">// simple case</span>
+<span class="pl-c1">SRML</span><span class="pl-k">.</span>getString(context, <span class="pl-smi">R</span><span class="pl-k">.</span>string<span class="pl-k">.</span>mystring);
+
+<span class="pl-c">// parameterized strings</span>
+<span class="pl-c1">SRML</span><span class="pl-k">.</span>getString(context, <span class="pl-smi">R</span><span class="pl-k">.</span>string<span class="pl-k">.</span>my_parameterized_string, firstArg, secondArg, <span class="pl-c1">...</span>);
+
+<span class="pl-c">// quantity strings</span>
+<span class="pl-c1">SRML</span><span class="pl-k">.</span>getQuantityString(context, <span class="pl-smi">R</span><span class="pl-k">.</span>plurals<span class="pl-k">.</span>my_plurals_resource, quantity, <span class="pl-c1">..</span><span class="pl-k">.</span>format args<span class="pl-k">.</span><span class="pl-c1">..</span>);
+
+<span class="pl-c">// String array resources</span>
+<span class="pl-c1">SRML</span><span class="pl-k">.</span>getStringArray(context, <span class="pl-smi">R</span><span class="pl-k">.</span>array<span class="pl-k">.</span>my_string_array);</pre></div>
+
+<p>Your resources can be arbitrarily complex, involving multiple, nested tags.</p>
+
+<h3>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h3>
+
+<pre><code>   Copyright 2016 Jason Feinstein
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+</code></pre>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/jasonwyatt/SRML/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/jasonwyatt/SRML/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/jasonwyatt/SRML"></a> is maintained by <a href="https://github.com/jasonwyatt">jasonwyatt</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
