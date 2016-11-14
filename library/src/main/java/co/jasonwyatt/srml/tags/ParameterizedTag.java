@@ -17,14 +17,20 @@ import co.jasonwyatt.srml.Utils;
  * Created by jason on 11/11/16.
  *
  * A ParameterizedTag is one which can contain an arbitrarily long list of parameters, defined as
- * name=value pairs after the tag name in the opening tag.
+ * <code>name=value</code> pairs after the tag name in the opening tag.
+ *
+ * Parameters can be of the following formats:
+ * <ul>
+ *     <li><code>param_name=param_value</code> if you do not need spaces, or</li>
+ *     <li><code>param_name=`param value`</code> if your param does need spaces</li>
+ * </ul>
  */
 public abstract class ParameterizedTag extends Tag {
     private static final Pattern PARAMS_PATTERN = Pattern.compile("\\s+(([a-zA-Z0-9_\\.]+)=(`((?:[^`]|\\s)*)`|([^\\s}]+)))");
     private final Map<String, String> mParams;
 
     /**
-     * Create a new parameterized tag.
+     * {@inheritDoc}
      */
     public ParameterizedTag(String tagStr, int taggedTextStart) {
         super(tagStr, taggedTextStart);
@@ -38,7 +44,8 @@ public abstract class ParameterizedTag extends Tag {
     }
 
     /**
-     * Get a particular parameter from the params list supplied in the constructor.
+     * Get a particular parameter from the params list parsed from the original tag string.
+     * @param name Name of the parameter.
      */
     protected String getParam(String name) {
         return mParams.get(name);
@@ -46,14 +53,14 @@ public abstract class ParameterizedTag extends Tag {
 
     /**
      * Get all parameters where the keys match the provided pattern.
+     * @param pattern A {@link Pattern} to match against the param names.
+     * @return List of {@link Utils.Pair<String, String>} pairs, with the keys & values for the
+     *         parameters which match {@param pattern}
      */
     protected List<Utils.Pair<String, String>> getParamsMatching(Pattern pattern) {
         return getParamsMatching(pattern, mParams);
     }
 
-    /**
-     * Parse the supplied tag string for parameters, and put them in {@param out}
-     */
     static void parseParams(String tagStr, Map<String, String> out) {
         Matcher m = PARAMS_PATTERN.matcher(tagStr);
         while (m.find()) {
