@@ -1,5 +1,3 @@
-
-
 # SRML [![Build Status](https://travis-ci.org/jasonwyatt/SRML.svg?branch=master)](https://travis-ci.org/jasonwyatt/SRML) [![](https://jitpack.io/v/jasonwyatt/SRML.svg)](https://jitpack.io/#jasonwyatt/SRML)
 
 SRML: "String Resource Markup Language"
@@ -71,6 +69,17 @@ SRML.getStringArray(context, R.array.my_string_array);
 ```
 
 Your resources can be arbitrarily complex, involving multiple, nested tags.
+
+## Contributing
+
+Fork the repository, and clone your fork locally.  After you do that, follow these guidelines:
+
+* Make sure you're doing your work on the `develop` branch.
+* Make your changes/improvements.
+* Make unit tests for your changes/improvements (preferable)
+* Be sure both your unit tests *and* the ones already in the project pass.
+* Commit, push, and open a pull request. Be sure to reference any bugs or feature enhancements your work pertains to (if any) in the pull request.
+* Be ready to discuss your pull request and celebrate its acceptance!
 
 ## License
 
