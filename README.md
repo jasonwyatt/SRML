@@ -8,28 +8,15 @@ Mark up your Android string resources with an impressive suite of formatting tag
 
 ## SRML Tags
 
-* `{{b}}Text{{/b}}` -> **Text**
-* `{{i}}Text{{/i}}` -> *Text*
-* `{{u}}Text{{/u}}` -> underlined text (markdown fail!)
-* `{{strike}}Text{{/strike}}` -> ~~Text~~
-* `{{color fg=#FF0000}}Text{{/color}}` -> red "Text"
-* `{{color bg=#FF0000}}Text{{/color}}` -> red background "Text"
-* `{{color fg=#fff bg=#000}}Text{{/color}}` -> white "Text" on black background
-* `{{link url=http://myurl.com}}Text{{/link}}` -> [Test](http://myurl.com)
-* `{{code}}Text{{/code}}` -> monospaced text
-* `{{intent class=com.yourcompany.ActivityClass}}Text{{/intent}}` -> link "Text" which launches the `ActivityClass` activity
-* `{{intent class=com.yourcompany.ActivityClass x_myextra=foo}}Text{{/intent}}` -> link "Text" which launches the `ActivityClass` activity with intent extra `myextra="foo"`
-* ``{{intent class=com.yourcompany.ActivityClass x_myextra=`value with spaces`}}Text{{/intent}}`` -> link "Text" which launches the `ActivityClass` activity with intent extra `myextra="value with spaces"`
-* `{{intent class=com.yourcompany.ServiceClass for_service=true}}Text{{/intent}}` -> link "Text" which starts the `ServiceClass` service
-* `{{drawable res=R.drawable.my_icon /}} Text` -> Shows `my_icon` next to Text..
-  * You can use `url=` instead of `res=` if you supply a [SRMLImageLoader](library/src/main/java/co/jasonwyatt/srml/SRMLImageLoader.java) to `SRML.setImageLoader()`
-  * Also allows for `width`, `height`, `alignment` parameters.
-
-### Create your own tags`
-
-1. Extend [Tag](library/src/main/java/co/jasonwyatt/srml/tags/Tag.java) or [ParameterizedTag](library/src/main/java/co/jasonwyatt/srml/tags/ParameterizedTag.java)
-1. Register your tag with `SRML.registerTag("mytag", MyTag.class)`
-1. Use it in a string resource: `<string name="some_string">Hello {{mytag}}World{{/mytag}}</string>`
+* [Bold](../../wiki/Tags#bold)
+* [Italic](../../wiki/Tags#italic)
+* [Underline](../../wiki/Tags#underline)
+* [Strikethrough](../../wiki/Tags#strikethrough)
+* [Color](../../wiki/Tags#color) (foreground and background)
+* [Link](../../wiki/Tags#link)
+* [Intent](../../wiki/Tags#intent)
+* [Drawable](../../wiki/Tags#drawable)
+* Or [create your own](../../wiki/Custom%20Tags) tags!
 
 ## Setup 
 
