@@ -12,6 +12,8 @@ Mark up your Android string resources with an impressive suite of formatting tag
 * [Italic](../../wiki/Tags#italic)
 * [Underline](../../wiki/Tags#underline)
 * [Strikethrough](../../wiki/Tags#strikethrough)
+* [Superscript](../../wiki/Tags#superscript)
+* [Subscript](../../wiki/Tags#subscript)
 * [Color](../../wiki/Tags#color) (foreground and background)
 * [Link](../../wiki/Tags#link)
 * [Intent](../../wiki/Tags#intent)
