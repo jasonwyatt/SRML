@@ -14,11 +14,12 @@ Mark up your Android string resources with an impressive suite of formatting tag
 * [Strikethrough](../../wiki/Tags#strikethrough)
 * [Superscript](../../wiki/Tags#superscript)
 * [Subscript](../../wiki/Tags#subscript)
+* [Code](../../wiki/Tags#code)
 * [Color](../../wiki/Tags#color) (foreground and background)
 * [Link](../../wiki/Tags#link)
 * [Intent](../../wiki/Tags#intent)
 * [Drawable](../../wiki/Tags#drawable)
-* Or [create your own](../../wiki/Custom%20Tags) tags!
+* ... or [create your own](../../wiki/Custom%20Tags) tags!
 
 ## Setup 
 
