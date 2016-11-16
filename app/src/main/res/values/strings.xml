@@ -15,6 +15,7 @@
         <item>{{color fg=#33000000}}This{{/color}} is a {{color fg=#FF00FF}}test case{{/color}} of {{color fg=#F00}}colored{{/color}} text.</item>
         <item>{{color bg=#33000000}}This{{/color}} is a {{color bg=#FF00FF}}test case{{/color}} of {{color bg=#F00}}colored{{/color}} text backgrounds.</item>
         <item>Let\'s do some {{color fg=#fff bg=#AA000000}}white text on a black background{{/color}}</item>
+        <item>Here is some {{color fg=R.color.heart_of_gold}}text{{/color}} that was {{color bg=R.color.vanilla_creme}}colored{{/color}} by resource id.</item>
         <item>{{link url=http://www.google.com}}This{{/link}} is a {{link url=http://www.bandcamp.com}}test case{{/link}} with a couple of links.</item>
         <item>Here\'s some code: {{code}}hello world{{/code}}</item>
         <item>Click {{intent class=co.jasonwyatt.srmldemoapp.TargetActivity}}here{{/intent}} to launch another activity.</item>

@@ -3,12 +3,14 @@ package co.jasonwyatt.srml;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.DisplayMetrics;
-import android.util.Log;
 
 import java.util.HashMap;
+import java.util.IllegalFormatException;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import co.jasonwyatt.srml.tags.BadParameterException;
 
 /**
  * @author jason
@@ -17,6 +19,7 @@ import java.util.regex.Pattern;
  */
 public class Utils {
     private static final Pattern SIZE_PATTERN = Pattern.compile("([0-9]+(\\.[0-9]+)?)(sp|dp|px)?", Pattern.CASE_INSENSITIVE);
+    private static final Pattern COLOR_VALUE_PATTERN = Pattern.compile("^#([0-9a-f]+)$", Pattern.CASE_INSENSITIVE);
     private static final Map<String, Integer> sIdentifierCache = new HashMap<>(100);
     private static SRMLImageLoader sImageLoader;
 
@@ -120,6 +123,38 @@ public class Utils {
             }
         }
         return 0;
+    }
+
+    /**
+     * Parses a color value hex string into its integer representation. If it's not a hex string, it
+     * tries to interpret {@param colorValue} as a resource identifier.
+     *
+     * @throws {@link NumberFormatException} if {@param colorValue} was not a hex string.
+     * @throws {@link BadParameterException} if the color value could not be parsed.
+     * @return Color int value.
+     */
+    public static int getColorInt(String colorValue) {
+        Matcher m = COLOR_VALUE_PATTERN.matcher(colorValue);
+        if (!m.find()) {
+            throw new NumberFormatException();
+        }
+
+        colorValue = m.group(1);
+        int colorLength = colorValue.length();
+
+        if (colorLength == 3) {
+            int raw = Integer.parseInt(colorValue, 16);
+            // 0xFFFFFF
+            int first = (raw & 0xF00) >> 8;
+            int second = (raw & 0x0F0) >> 4;
+            int third = raw & 0x00F;
+            return (0xFF << 24) | (first << 20) | (first << 16) | (second << 12) | (second << 8) | (third << 4) | third;
+        } else if (colorLength == 6) {
+            return (0xFF << 24) | Integer.parseInt(colorValue, 16);
+        } else if (colorLength == 8) {
+            return (int) Long.parseLong(colorValue, 16);
+        }
+        throw new BadParameterException("could not parse color value: "+colorValue);
     }
 
     public static class Pair<F, S> {
