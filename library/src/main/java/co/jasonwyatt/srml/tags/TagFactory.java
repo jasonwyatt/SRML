@@ -44,6 +44,12 @@ public final class TagFactory {
         if (DrawableTag.NAME.equalsIgnoreCase(tagName)) {
             return new DrawableTag(tagText, startPosition);
         }
+        if (Superscript.NAME.equalsIgnoreCase(tagName)) {
+            return new Superscript(tagText, startPosition);
+        }
+        if (Subscript.NAME.equalsIgnoreCase(tagName)) {
+            return new Subscript(tagText, startPosition);
+        }
         if (mConstructorMap.containsKey(tagName.toLowerCase())) {
             try {
                 return mConstructorMap.get(tagName.toLowerCase()).newInstance(tagText, startPosition);

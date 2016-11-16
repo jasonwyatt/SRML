@@ -34,20 +34,11 @@ public class IntentTagTest {
 
     @Test
     public void parseAndSetExtra_boolean() {
-        IntentTag.parseAndSetExtra(mBundle, "true", "boolean(true)");
+        IntentTag.parseAndSetExtra(mBundle, "true", "true");
         verify(mBundle).putBoolean("true", true);
 
-        IntentTag.parseAndSetExtra(mBundle, "false", "boolean(false)");
+        IntentTag.parseAndSetExtra(mBundle, "false", "false");
         verify(mBundle).putBoolean("false", false);
-
-        IntentTag.parseAndSetExtra(mBundle, "zero", "boolean(0)");
-        verify(mBundle).putBoolean("zero", false);
-
-        IntentTag.parseAndSetExtra(mBundle, "one", "boolean(1)");
-        verify(mBundle).putBoolean("one", true);
-
-        IntentTag.parseAndSetExtra(mBundle, "neg_one", "boolean(-1)");
-        verify(mBundle).putBoolean("neg_one", true);
     }
 
     @Test

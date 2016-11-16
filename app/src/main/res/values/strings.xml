@@ -10,12 +10,15 @@
         <item>This is {{b}}{{i}}a test{{/i}}{{/b}} of {{b}}{{i}}bold/italic{{/i}}{{/b}} parsing.</item>
         <item>This is {{u}}a test{{/u}} of {{u}}underline{{/u}} parsing.</item>
         <item>This is {{strike}}a test{{/strike}} of {{strike}}strikethrough{{/strike}} parsing.</item>
+        <item>Superscript{{sup}}is quite cool{{/sup}}</item>
+        <item>Subscript{{sub}}is very chill{{/sub}}</item>
         <item>{{color fg=#33000000}}This{{/color}} is a {{color fg=#FF00FF}}test case{{/color}} of {{color fg=#F00}}colored{{/color}} text.</item>
         <item>{{color bg=#33000000}}This{{/color}} is a {{color bg=#FF00FF}}test case{{/color}} of {{color bg=#F00}}colored{{/color}} text backgrounds.</item>
         <item>Let\'s do some {{color fg=#fff bg=#AA000000}}white text on a black background{{/color}}</item>
-        <item>{{link url=http://www.google.com}}This{{/link}} is a {{link url=http://www.bandcamp.com}}test case{{/link}} with a couple of links.</item>
+        <item>Here is some {{color fg=R.color.heart_of_gold}}text{{/color}} that was {{color bg=R.color.vanilla_creme}}colored{{/color}} by resource id.</item>
+        <item>{{link url=http://www.google.com color=#F0F underline=true}}This{{/link}} is a {{link url=http://www.bandcamp.com}}test case{{/link}} with a couple of links.</item>
         <item>Here\'s some code: {{code}}hello world{{/code}}</item>
-        <item>Click {{intent class=co.jasonwyatt.srmldemoapp.TargetActivity}}here{{/intent}} to launch another activity.</item>
+        <item>Click {{intent class=co.jasonwyatt.srmldemoapp.TargetActivity color=#0F0 underline=false}}here{{/intent}} to launch another activity.</item>
         <item>Click {{intent class=co.jasonwyatt.srmldemoapp.TargetActivity x_text=`hello world`}}here{{/intent}} to launch another activity with an extra.</item>
         <item>Let\'s try an image by a resource id: {{drawable res=R.mipmap.ic_launcher width=16dp height=16dp /}} - sweet!</item>
         <item>Let\'s try an image from a url: {{drawable url=http://emojis.slackmojis.com/emojis/images/1457563042/312/doge.png /}} - sweet!</item>
