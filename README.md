@@ -38,7 +38,7 @@ Add SRML as a dependency to your app's `build.gradle`:
 
 ```groovy
 dependencies {
-    compile 'com.github.jasonwyatt:SRML:-SNAPSHOT'
+    compile 'com.github.jasonwyatt:SRML:0.5'
 }
 ```
 
