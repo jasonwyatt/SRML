@@ -2,6 +2,7 @@ package co.jasonwyatt.srml;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.util.DisplayMetrics;
 
 import java.util.HashMap;
@@ -155,6 +156,31 @@ public class Utils {
             return (int) Long.parseLong(colorValue, 16);
         }
         throw new BadParameterException("could not parse color value: "+colorValue);
+    }
+
+    /**
+     * Attempts to parse the string as a hex color string, if that fails, it will attempt to look it
+     * up as a resource.
+     *
+     * @see #getColorInt(String)
+     *
+     * @param context Current context.
+     * @param colorValueOrResource Color string or resource identifier.
+     * @throws {@link BadParameterException} if the color value could not be parsed.
+     * @return Color int value.
+     */
+    public static int getColorInt(Context context, String colorValueOrResource) {
+        try {
+            return getColorInt(colorValueOrResource);
+        } catch (NumberFormatException e) {
+            // try by resource...
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                return context.getResources().getColor(Utils.getIdentifier(context, colorValueOrResource), context.getTheme());
+            } else {
+                //noinspection deprecation
+                return context.getResources().getColor(Utils.getIdentifier(context, colorValueOrResource));
+            }
+        }
     }
 
     public static class Pair<F, S> {

@@ -38,36 +38,12 @@ class Color extends ParameterizedTag {
     public void operate(Context context, Spannable builder, int taggedTextEnd) {
         String colorValue = getParam(PARAM_COLOR_FG);
         if (colorValue != null) {
-            int colorInt;
-            try {
-                colorInt = Utils.getColorInt(colorValue);
-            } catch (NumberFormatException e) {
-                // try by resource...
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    colorInt = context.getResources().getColor(Utils.getIdentifier(context, colorValue), context.getTheme());
-                } else {
-                    //noinspection deprecation
-                    colorInt = context.getResources().getColor(Utils.getIdentifier(context, colorValue));
-                }
-            }
-            builder.setSpan(new ForegroundColorSpan(colorInt), getTaggedTextStart(), taggedTextEnd, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            builder.setSpan(new ForegroundColorSpan(Utils.getColorInt(context, colorValue)), getTaggedTextStart(), taggedTextEnd, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         }
 
         colorValue = getParam(PARAM_COLOR_BG);
         if (colorValue != null) {
-            int colorInt;
-            try {
-                colorInt = Utils.getColorInt(colorValue);
-            } catch (NumberFormatException e) {
-                // try by resource...
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    colorInt = context.getResources().getColor(Utils.getIdentifier(context, colorValue), context.getTheme());
-                } else {
-                    //noinspection deprecation
-                    colorInt = context.getResources().getColor(Utils.getIdentifier(context, colorValue));
-                }
-            }
-            builder.setSpan(new BackgroundColorSpan(colorInt), getTaggedTextStart(), taggedTextEnd, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            builder.setSpan(new BackgroundColorSpan(Utils.getColorInt(context, colorValue)), getTaggedTextStart(), taggedTextEnd, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         }
     }
 }

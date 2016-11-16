@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.Spannable;
 import android.text.Spanned;
-import android.text.style.ClickableSpan;
 import android.view.View;
 
 import java.util.List;
@@ -44,35 +43,37 @@ public class IntentTag extends ParameterizedTag {
     private static final String TYPE_INT = "int";
     private static final String TYPE_LONG = "long";
     private static final String TYPE_CHAR = "char";
-    private static final String TYPE_BOOLEAN = "boolean";
     private static final String TYPE_FLOAT = "float";
     private static final String TYPE_DOUBLE = "double";
     private static final String TYPE_BYTE = "byte";
     private static final String TYPE_SHORT = "short";
     private static final String[] TYPES = {
-            TYPE_INT, TYPE_LONG, TYPE_CHAR, TYPE_BOOLEAN, TYPE_FLOAT, TYPE_DOUBLE, TYPE_SHORT, TYPE_BYTE,
+            TYPE_INT, TYPE_LONG, TYPE_CHAR, TYPE_FLOAT, TYPE_DOUBLE, TYPE_SHORT, TYPE_BYTE,
     };
-    private static final Pattern EXTRAS_VALUE_CAST_PATTERN = Pattern.compile("(" + Utils.join("|", TYPES) + ")\\((true|false|-?[0-9]+(\\.[0-9]+)?|[^ ])\\)");
+    private static final Pattern EXTRAS_VALUE_CAST_PATTERN = Pattern.compile("((" + Utils.join("|", TYPES) + ")\\((-?[0-9]+(\\.[0-9]+)?|[^ ])\\))|(true|false)");
+    private static final String PARAM_CLASS = "class";
+    private static final String PARAM_FOR_SERVICE = "for_service";
+    private static final String PARAM_ACTION = "action";
     String mTargetClass;
     String mAction;
     Bundle mExtras;
     boolean mIsForService;
 
-    public IntentTag(String tagStr, int taggedTextStart) {
+    IntentTag(String tagStr, int taggedTextStart) {
         super(tagStr, taggedTextStart);
         parseParams();
     }
 
     private void parseParams() {
-        mTargetClass = getParam("class");
+        mTargetClass = getParam(PARAM_CLASS);
         if (mTargetClass == null || mTargetClass.length() == 0) {
             throw new BadParameterException("No class parameter specified at " + getTaggedTextStart());
         }
 
-        String forService = getParam("for_service");
+        String forService = getParam(PARAM_FOR_SERVICE);
         mIsForService = forService != null && "true".equalsIgnoreCase(forService);
 
-        mAction = getParam("action");
+        mAction = getParam(PARAM_ACTION);
         List<Utils.Pair<String, String>> extraParams = getParamsMatching(EXTRAS_KEY_PATTERN);
         if (!extraParams.isEmpty()) {
             mExtras = new Bundle(extraParams.size());
@@ -89,7 +90,9 @@ public class IntentTag extends ParameterizedTag {
 
     @Override
     public void operate(Context context, Spannable builder, int taggedTextEnd) {
-        builder.setSpan(new IntentSpan(mTargetClass, mAction, mExtras, mIsForService), getTaggedTextStart(), taggedTextEnd, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        IntentSpan span = new IntentSpan(mTargetClass, mAction, mExtras, mIsForService);
+        span.useParams(context, this);
+        builder.setSpan(span, getTaggedTextStart(), taggedTextEnd, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
     }
 
     static void populateExtras(Bundle target, List<Utils.Pair<String, String>> params) {
@@ -103,13 +106,15 @@ public class IntentTag extends ParameterizedTag {
     static void parseAndSetExtra(Bundle target, String name, String value) {
         Matcher m = EXTRAS_VALUE_CAST_PATTERN.matcher(value);
         if (m.matches()) {
-            String type = m.group(1);
-            String rawValue = m.group(2);
+            String type = m.group(2);
+            String rawValue = m.group(3);
+            String booleanValue = m.group(5);
+            if (type == null && booleanValue != null) {
+                target.putBoolean(name, "true".equalsIgnoreCase(booleanValue));
+                return;
+            }
             try {
-                switch (type) {
-                    case TYPE_BOOLEAN:
-                        target.putBoolean(name, rawValue != null && !"false".equalsIgnoreCase(rawValue) && !"0".equalsIgnoreCase(rawValue));
-                        break;
+                switch (type != null ? type : "other") {
                     case TYPE_BYTE:
                         target.putByte(name, Byte.parseByte(rawValue));
                         break;
@@ -146,7 +151,7 @@ public class IntentTag extends ParameterizedTag {
         }
     }
 
-    private static class IntentSpan extends ClickableSpan {
+    private static class IntentSpan extends StyledClickableSpan {
         private final boolean mIsForService;
         private final String mAction;
         private final String mTargetClass;
