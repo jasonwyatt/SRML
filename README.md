@@ -1,4 +1,4 @@
-# SRML [![Build Status](https://travis-ci.org/jasonwyatt/SRML.svg?branch=master)](https://travis-ci.org/jasonwyatt/SRML) [![](https://jitpack.io/v/jasonwyatt/SRML.svg)](https://jitpack.io/#jasonwyatt/SRML)
+# SRML [![Build Status](https://travis-ci.org/jasonwyatt/SRML.svg?branch=master)](https://travis-ci.org/jasonwyatt/SRML) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SRML-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/4672) [![](https://jitpack.io/v/jasonwyatt/SRML.svg)](https://jitpack.io/#jasonwyatt/SRML)
 
 SRML: "String Resource Markup Language"
 
