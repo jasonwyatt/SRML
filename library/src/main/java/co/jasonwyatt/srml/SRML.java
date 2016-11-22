@@ -107,4 +107,14 @@ public final class SRML {
     public static CharSequence getQuantityString(Context context, Transformer transformer, @PluralsRes int resId, int quantity, Object... formatArgs) {
         return transformer.transform(context, context.getResources().getQuantityString(resId, quantity, transformer.getSanitizer().sanitizeArgs(formatArgs)));
     }
+
+    /**
+     * Mark up a string with SRML.
+     * @param context Current context
+     * @param str String to mark up.
+     * @return Marked-up CharSequence.
+     */
+    public static CharSequence markup(Context context, String str) {
+        return sTransformer.transform(context, str);
+    }
 }

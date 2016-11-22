@@ -3,6 +3,9 @@
     <string name="another_activity_title">Another Activity</string>
     <string name="no_text_extra_sent">No value for extra \"test\"</string>
     <string name="text_extra_sent">Value for extra \"test\" = {{code}}%s{{/code}}</string>
+    <string name="widget_activity_title">Widgets</string>
+    <string name="srml_textview_text">From the {{code}}TextView{{/code}} JavaDocs:\n\nDisplays text to the user and optionally allows them to edit it. A {{code}}TextView{{/code}} is a complete text editor, however the basic class is configured to not allow editing\; see {{link url=https://developer.android.com/reference/android/widget/EditText.html underline=false}}EditText{{/link}} for a subclass that configures the text view for editing.\n\nTo allow users to copy some or all of the TextView\'s value and paste it somewhere else, set the XML attribute {{code}}{{link url=https://developer.android.com/reference/android/R.styleable.html#TextView_textIsSelectable underline=false}}android:textIsSelectable{{/link}}{{/code}} to \"true\" or call {{code}}{{link url=https://developer.android.com/reference/android/widget/TextView.html#setTextIsSelectable(boolean) underline=false}}setTextIsSelectable(true){{/link}}{{/code}}. The {{code}}{{color fg=#0A0}}textIsSelectable{{/color}}{{/code}} flag allows users to make selection gestures in the TextView, which in turn triggers the system\'s built-in copy/paste controls.</string>
+    <string name="srml_textview">SRMLTextView</string>
 
     <string-array name="test_strings">
         <item>This is {{b}}a test{{/b}} of {{b}}bold{{/b}} parsing.</item>
