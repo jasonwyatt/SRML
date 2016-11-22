@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import co.jasonwyatt.srml.SRML;
+import co.jasonwyatt.srml.utils.SafeString;
 
 public class MainActivity extends AppCompatActivity {
     private ListView mListView;
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(CharSequence[] charSequences) {
                 adapter.addAll(charSequences);
+                adapter.add(SRML.getString(MainActivity.this, R.string.safestring_text, new SafeString("{{b}}bolded SafeString{{/b}}")));
             }
 
             @Override
