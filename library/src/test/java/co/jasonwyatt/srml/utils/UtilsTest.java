@@ -1,4 +1,4 @@
-package co.jasonwyatt.srml;
+package co.jasonwyatt.srml.utils;
 
 import org.junit.Test;
 
