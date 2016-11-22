@@ -6,6 +6,7 @@ import android.support.annotation.PluralsRes;
 import android.support.annotation.StringRes;
 
 import co.jasonwyatt.srml.tags.Tag;
+import co.jasonwyatt.srml.utils.Utils;
 
 /**
  * SRML stands for <b>S</b>tring <b>R</b>esource <b>M</b>arkup <b>L</b>anguage.
@@ -106,5 +107,15 @@ public final class SRML {
 
     public static CharSequence getQuantityString(Context context, Transformer transformer, @PluralsRes int resId, int quantity, Object... formatArgs) {
         return transformer.transform(context, context.getResources().getQuantityString(resId, quantity, transformer.getSanitizer().sanitizeArgs(formatArgs)));
+    }
+
+    /**
+     * Mark up a string with SRML.
+     * @param context Current context
+     * @param str String to mark up.
+     * @return Marked-up CharSequence.
+     */
+    public static CharSequence markup(Context context, String str) {
+        return sTransformer.transform(context, str);
     }
 }

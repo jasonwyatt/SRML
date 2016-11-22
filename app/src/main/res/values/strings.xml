@@ -3,6 +3,10 @@
     <string name="another_activity_title">Another Activity</string>
     <string name="no_text_extra_sent">No value for extra \"test\"</string>
     <string name="text_extra_sent">Value for extra \"test\" = {{code}}%s{{/code}}</string>
+    <string name="widget_activity_title">Widgets</string>
+    <string name="srml_textview_text">From the {{code}}TextView{{/code}} JavaDocs:\n\nDisplays text to the user and optionally allows them to edit it. A {{code}}TextView{{/code}} is a complete text editor, however the basic class is configured to not allow editing\; see {{link url=https://developer.android.com/reference/android/widget/EditText.html underline=false}}EditText{{/link}} for a subclass that configures the text view for editing.\n\nTo allow users to copy some or all of the TextView\'s value and paste it somewhere else, set the XML attribute {{code}}{{link url=https://developer.android.com/reference/android/R.styleable.html#TextView_textIsSelectable underline=false}}android:textIsSelectable{{/link}}{{/code}} to \"true\" or call {{code}}{{link url=https://developer.android.com/reference/android/widget/TextView.html#setTextIsSelectable(boolean) underline=false}}setTextIsSelectable(true){{/link}}{{/code}}. The {{code}}{{color fg=#0A0}}textIsSelectable{{/color}}{{/code}} flag allows users to make selection gestures in the TextView, which in turn triggers the system\'s built-in copy/paste controls.</string>
+    <string name="srml_textview">SRMLTextView</string>
+    <string name="safestring_text">Here\'s some SafeString text: %s</string>
 
     <string-array name="test_strings">
         <item>This is {{b}}a test{{/b}} of {{b}}bold{{/b}} parsing.</item>
@@ -35,6 +39,12 @@
             lectus. Praesent {{link url=http://srml.jasonwyatt.co}}elementum hendrerit tortor{{/link}}. Sed semper lorem at felis. Vestibulum
             volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien
             ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+        </item>
+        <item>
+            {{font style=bold|italic|underline letter_spacing=0.5 line_height=40sp fg=#555 size=20sp typeface=serif}}Here\'s some text formatted using the font tag with several attributes: style=bold|italic|underline, letter_spacing=0.5, line_height=40sp, fg=#555, typeface=serif{{/font}}\n\nIsn\'t it cool?
+        </item>
+        <item>
+            {{font text_appearance=R.style.my_text_appearance}}Here\'s some text formatted using the font tag with a text appearance style{{/font}}\n\nIsn\'t it cool?
         </item>
     </string-array>
 </resources>

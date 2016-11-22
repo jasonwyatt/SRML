@@ -1,4 +1,4 @@
-# SRML [![Build Status](https://travis-ci.org/jasonwyatt/SRML.svg?branch=master)](https://travis-ci.org/jasonwyatt/SRML) [![](https://jitpack.io/v/jasonwyatt/SRML.svg)](https://jitpack.io/#jasonwyatt/SRML)
+# SRML [![Build Status](https://travis-ci.org/jasonwyatt/SRML.svg?branch=master)](https://travis-ci.org/jasonwyatt/SRML) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SRML-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/4672) [![](https://jitpack.io/v/jasonwyatt/SRML.svg)](https://jitpack.io/#jasonwyatt/SRML)
 
 SRML: "String Resource Markup Language"
 
@@ -16,6 +16,7 @@ Mark up your Android string resources with an impressive suite of formatting tag
 * [Subscript](../../wiki/Tags#subscript)
 * [Code](../../wiki/Tags#code)
 * [Color](../../wiki/Tags#color) (foreground and background)
+* [Font](../../wiki/Tags#font)
 * [Link](../../wiki/Tags#link)
 * [Intent](../../wiki/Tags#intent)
 * [Drawable](../../wiki/Tags#drawable)
@@ -38,7 +39,7 @@ Add SRML as a dependency to your app's `build.gradle`:
 
 ```groovy
 dependencies {
-    compile 'com.github.jasonwyatt:SRML:0.5'
+    compile 'com.github.jasonwyatt:SRML:0.6.0'
 }
 ```
 
@@ -59,6 +60,10 @@ SRML.getStringArray(context, R.array.my_string_array);
 ```
 
 Your resources can be arbitrarily complex, involving multiple, nested tags.
+
+### SRMLTextView
+
+For ease of use, you can use `SRMLTextView` in place of `TextView` objects in your layouts, and it will automatically mark-up any text passed to it via `setText()`.
 
 ## Contributing
 

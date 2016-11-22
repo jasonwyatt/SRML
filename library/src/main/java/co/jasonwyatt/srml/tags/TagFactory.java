@@ -50,6 +50,9 @@ public final class TagFactory {
         if (Subscript.NAME.equalsIgnoreCase(tagName)) {
             return new Subscript(tagText, startPosition);
         }
+        if (FontTag.NAME.equalsIgnoreCase(tagName)) {
+            return new FontTag(tagText, startPosition);
+        }
         if (mConstructorMap.containsKey(tagName.toLowerCase())) {
             try {
                 return mConstructorMap.get(tagName.toLowerCase()).newInstance(tagText, startPosition);

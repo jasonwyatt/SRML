@@ -9,4 +9,10 @@
         <item name="android:textColorLink">@android:color/holo_blue_dark</item>
     </style>
 
+    <style name="my_text_appearance">
+        <item name="android:textColor">#555</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:textSize">25sp</item>
+    </style>
 </resources>

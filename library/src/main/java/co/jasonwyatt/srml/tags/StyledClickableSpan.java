@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 
-import co.jasonwyatt.srml.Utils;
+import co.jasonwyatt.srml.utils.Utils;
 
 /**
  * Extension of {@link ClickableSpan} which allows the user to customize its appearance, rather than
