@@ -40,5 +40,11 @@
             volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien
             ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
         </item>
+        <item>
+            {{font style=bold|italic|underline letter_spacing=0.5 line_height=40sp fg=#555 size=20sp typeface=serif}}Here\'s some text formatted using the font tag with several attributes: style=bold|italic|underline, letter_spacing=0.5, line_height=40sp, fg=#555, typeface=serif{{/font}}\n\nIsn\'t it cool?
+        </item>
+        <item>
+            {{font text_appearance=R.style.my_text_appearance}}Here\'s some text formatted using the font tag with a text appearance style{{/font}}\n\nIsn\'t it cool?
+        </item>
     </string-array>
 </resources>
