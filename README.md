@@ -60,6 +60,10 @@ SRML.getStringArray(context, R.array.my_string_array);
 
 Your resources can be arbitrarily complex, involving multiple, nested tags.
 
+### SRMLTextView
+
+For ease of use, you can use `SRMLTextView` in place of `TextView` objects in your layouts, and it will automatically mark-up any text passed to it via `setText()`.
+
 ## Contributing
 
 Fork the repository, and clone your fork locally.  After you do that, follow these guidelines:
