@@ -1,4 +1,4 @@
-package co.jasonwyatt.srml;
+package co.jasonwyatt.srml.utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -6,11 +6,11 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 
 import java.util.HashMap;
-import java.util.IllegalFormatException;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import co.jasonwyatt.srml.SRMLImageLoader;
 import co.jasonwyatt.srml.tags.BadParameterException;
 
 /**

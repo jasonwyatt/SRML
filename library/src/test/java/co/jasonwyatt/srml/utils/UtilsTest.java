@@ -1,8 +1,9 @@
-package co.jasonwyatt.srml;
+package co.jasonwyatt.srml.utils;
 
 import org.junit.Test;
 
 import co.jasonwyatt.srml.tags.BadParameterException;
+import co.jasonwyatt.srml.utils.Utils;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;

@@ -1,16 +1,12 @@
 package co.jasonwyatt.srml.tags;
 
 import android.content.Context;
-import android.os.Build;
 import android.text.Spannable;
 import android.text.Spanned;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import co.jasonwyatt.srml.Utils;
+import co.jasonwyatt.srml.utils.Utils;
 
 /**
  * @author jason

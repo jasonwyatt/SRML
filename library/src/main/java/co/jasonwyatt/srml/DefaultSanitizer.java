@@ -3,6 +3,8 @@ package co.jasonwyatt.srml;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import co.jasonwyatt.srml.utils.SafeString;
+
 /**
  * @author jason
  *
@@ -24,7 +26,7 @@ public class DefaultSanitizer implements Sanitizer {
             return null;
         }
         for (int i = 0; i < formatArgs.length; i++) {
-            if (formatArgs[i] instanceof CharSequence) {
+            if (formatArgs[i] instanceof CharSequence && !(formatArgs[i] instanceof SafeString)) {
                 Matcher m = SANITIZE_PATTERN.matcher((CharSequence) formatArgs[i]);
                 formatArgs[i] = m.replaceAll(SANITIZE_REPLACEMENT);
             }

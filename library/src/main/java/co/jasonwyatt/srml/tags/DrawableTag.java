@@ -9,7 +9,7 @@ import android.text.Spanned;
 import android.text.style.DynamicDrawableSpan;
 import android.text.style.ImageSpan;
 
-import co.jasonwyatt.srml.Utils;
+import co.jasonwyatt.srml.utils.Utils;
 
 /**
  * The DrawableTag allows you to embed images in string resources.
