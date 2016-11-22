@@ -6,6 +6,7 @@ import android.support.annotation.PluralsRes;
 import android.support.annotation.StringRes;
 
 import co.jasonwyatt.srml.tags.Tag;
+import co.jasonwyatt.srml.utils.Utils;
 
 /**
  * SRML stands for <b>S</b>tring <b>R</b>esource <b>M</b>arkup <b>L</b>anguage.

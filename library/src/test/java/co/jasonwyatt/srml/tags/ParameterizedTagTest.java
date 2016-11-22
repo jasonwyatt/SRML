@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import co.jasonwyatt.srml.Utils;
+import co.jasonwyatt.srml.utils.Utils;
 
 import static junit.framework.Assert.assertEquals;
 

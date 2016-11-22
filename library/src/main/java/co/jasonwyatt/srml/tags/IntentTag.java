@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import co.jasonwyatt.srml.Utils;
+import co.jasonwyatt.srml.utils.Utils;
 
 /**
  * @author jason

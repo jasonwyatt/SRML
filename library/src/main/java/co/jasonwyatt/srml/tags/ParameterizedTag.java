@@ -2,7 +2,6 @@ package co.jasonwyatt.srml.tags;
 
 import android.os.Build;
 import android.util.ArrayMap;
-import android.util.Pair;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -11,7 +10,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import co.jasonwyatt.srml.Utils;
+import co.jasonwyatt.srml.utils.Utils;
 
 /**
  * A ParameterizedTag is one which can contain an arbitrarily long list of parameters, defined as

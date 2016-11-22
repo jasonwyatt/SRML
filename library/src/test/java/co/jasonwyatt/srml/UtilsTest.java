@@ -3,6 +3,7 @@ package co.jasonwyatt.srml;
 import org.junit.Test;
 
 import co.jasonwyatt.srml.tags.BadParameterException;
+import co.jasonwyatt.srml.utils.Utils;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
